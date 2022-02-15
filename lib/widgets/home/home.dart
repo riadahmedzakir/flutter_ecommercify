@@ -12,7 +12,9 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       title: "My Shop",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.deepOrange,
+        fontFamily: 'Lato',
       ),
       home: ProductOverview(),
     );
