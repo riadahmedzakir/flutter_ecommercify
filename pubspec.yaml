@@ -38,6 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  provider: 4.3.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -76,12 +77,12 @@ flutter:
   fonts:
     - family: Lato
       fonts:
-        - asset: assets/fonts/Lato-Regular.tff
-        - asset: assets/fonts/Lato-Bold.tff
-          style: 700
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          style: normal
     - family: Anton
       fonts:
-        - asset: assets/fonts/Anton-Regular.tff
-          style: 700
+        - asset: assets/fonts/Anton-Regular.ttf
+          style: normal
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommercify/providers/products_provider.dart';
+import 'package:provider/provider.dart';
+
+import 'package:flutter_ecommercify/widgets/product/product_details.dart';
 import 'package:flutter_ecommercify/widgets/product/product_overview.dart';
 
 class Home extends StatefulWidget {
@@ -9,14 +13,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "My Shop",
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.deepOrange,
-        fontFamily: 'Lato',
+    return ChangeNotifierProvider(
+      create: (ctx) => ProductProvider(),
+      child: MaterialApp(
+        title: "My Shop",
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.deepOrange,
+          fontFamily: 'Lato',
+        ),
+        home: ProductOverview(),
+        routes: {
+          ProductDetails.routeName: (ctx) => ProductDetails(),
+        },
       ),
-      home: ProductOverview(),
     );
   }
 }
