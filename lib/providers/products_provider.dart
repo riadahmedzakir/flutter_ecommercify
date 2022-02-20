@@ -4,7 +4,7 @@ import 'package:flutter_ecommercify/models/product.dart';
 
 class ProductProvider with ChangeNotifier {
   final List<Product> _items = DUMMY_PRODUCTS;
-  
+
   List<Product> get items {
     return [..._items];
   }
@@ -12,5 +12,9 @@ class ProductProvider with ChangeNotifier {
   void addProducts() {
     // _items.add(value);
     notifyListeners();
+  }
+
+  Product findById(String Id) {
+    return _items.firstWhere((prod) => prod.id == Id);
   }
 }
