@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommercify/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_ecommercify/models/product.dart';
 import 'package:flutter_ecommercify/widgets/product/product_details.dart';
@@ -6,7 +7,9 @@ import 'package:flutter_ecommercify/widgets/product/product_details.dart';
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Product product = Provider.of<Product>(context);
+    final Product product = Provider.of<Product>(context, listen: false);
+    final CartProvider cartProvider =
+        Provider.of<CartProvider>(context, listen: false);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
@@ -27,12 +30,16 @@ class ProductItem extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border),
-            onPressed: () => {product.toggleFav()},
+            onPressed: () => {
+              product.toggleFav(),
+            },
             color: Theme.of(context).accentColor,
           ),
           trailing: IconButton(
             icon: const Icon(Icons.shopping_cart),
-            onPressed: () => {},
+            onPressed: () => {
+              cartProvider.addItem(product.id, product.price, product.title),
+            },
             color: Theme.of(context).accentColor,
           ),
           backgroundColor: Colors.black87,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommercify/providers/cart_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +14,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (ctx) => ProductProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: ProductProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: CartProvider(),
+        ),
+      ],
       child: MaterialApp(
         title: "My Shop",
         theme: ThemeData(

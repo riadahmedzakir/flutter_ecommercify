@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommercify/providers/cart_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
+import 'package:flutter_ecommercify/widgets/badge/badge.dart';
 import 'package:provider/provider.dart';
 
 import 'product_grid.dart';
@@ -12,6 +14,18 @@ class ProductOverview extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Shop'),
         actions: <Widget>[
+          Consumer<CartProvider>(
+            builder: (_, cartData, ch) => Badge(
+              child: ch,
+              value: cartData.itemCount.toString(),
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.shopping_cart,
+              ),
+              onPressed: () {},
+            ),
+          ),
           PopupMenuButton(
             icon: const Icon(Icons.more_vert),
             onSelected: (int selectedValue) {
