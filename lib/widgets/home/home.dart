@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommercify/providers/cart_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
+import 'package:flutter_ecommercify/widgets/cart/cart_list.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_ecommercify/widgets/product/product_details.dart';
@@ -33,6 +34,7 @@ class _HomeState extends State<Home> {
         home: ProductOverview(),
         routes: {
           ProductDetails.routeName: (ctx) => ProductDetails(),
+          CartList.routeName: (ctx) => CartList()
         },
       ),
     );
