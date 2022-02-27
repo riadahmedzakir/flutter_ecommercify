@@ -14,7 +14,9 @@ class CartProvider with ChangeNotifier {
 
   double get totalAmount {
     var total = 0.0;
-    _items.forEach((key, cartItem) { total+= cartItem.price * cartItem.quantity; });
+    _items.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
     return total;
   }
 
@@ -24,6 +26,7 @@ class CartProvider with ChangeNotifier {
           productId,
           (existingCartItem) => Cart(
                 id: existingCartItem.id,
+                productId: existingCartItem.productId,
                 title: existingCartItem.title,
                 quantity: existingCartItem.quantity + 1,
                 price: existingCartItem.price,
@@ -33,12 +36,18 @@ class CartProvider with ChangeNotifier {
           productId,
           () => Cart(
                 id: DateTime.now().toString(),
+                productId: productId,
                 title: title,
                 quantity: 1,
                 price: price,
               ));
     }
 
+    notifyListeners();
+  }
+
+  void removeItem(String productId) {
+    _items.remove(productId);
     notifyListeners();
   }
 }
