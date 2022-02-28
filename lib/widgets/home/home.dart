@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommercify/providers/cart_provider.dart';
+import 'package:flutter_ecommercify/providers/order_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
 import 'package:flutter_ecommercify/widgets/cart/cart_list.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,9 @@ class _HomeState extends State<Home> {
         ),
         ChangeNotifierProvider.value(
           value: CartProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: OrderProvider(),
         ),
       ],
       child: MaterialApp(
