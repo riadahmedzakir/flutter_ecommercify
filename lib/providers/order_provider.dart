@@ -19,5 +19,7 @@ class OrderProvider with ChangeNotifier {
         datetime: DateTime.now(),
       ),
     );
+
+    notifyListeners();
   }
 }

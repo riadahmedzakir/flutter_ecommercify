@@ -3,6 +3,7 @@ import 'package:flutter_ecommercify/providers/cart_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
 import 'package:flutter_ecommercify/widgets/badge/badge.dart';
 import 'package:flutter_ecommercify/widgets/cart/cart_list.dart';
+import 'package:flutter_ecommercify/widgets/drawer/app_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'product_grid.dart';
@@ -51,6 +52,7 @@ class ProductOverview extends StatelessWidget {
           ),
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductGrid(),
     );
   }
