@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommercify/widgets/order/order_list.dart';
+import 'package:flutter_ecommercify/widgets/product/manage_product.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -25,6 +26,15 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Orders'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(OrderList.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.edit),
+            title: const Text('Manage Products'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(ManageProduct.routeName);
             },
           )
         ],

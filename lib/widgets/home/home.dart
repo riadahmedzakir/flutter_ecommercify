@@ -5,6 +5,7 @@ import 'package:flutter_ecommercify/providers/order_provider.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
 import 'package:flutter_ecommercify/widgets/cart/cart_list.dart';
 import 'package:flutter_ecommercify/widgets/order/order_list.dart';
+import 'package:flutter_ecommercify/widgets/product/manage_product.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_ecommercify/widgets/product/product_details.dart';
@@ -41,7 +42,8 @@ class _HomeState extends State<Home> {
         routes: {
           ProductDetails.routeName: (ctx) => ProductDetails(),
           CartList.routeName: (ctx) => CartList(),
-          OrderList.routeName: (ctx) => OrderList()
+          OrderList.routeName: (ctx) => OrderList(),
+          ManageProduct.routeName: (ctx) => ManageProduct()
         },
       ),
     );
