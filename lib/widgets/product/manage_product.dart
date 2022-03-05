@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommercify/providers/products_provider.dart';
 import 'package:flutter_ecommercify/widgets/drawer/app_drawer.dart';
+import 'package:flutter_ecommercify/widgets/product/add_product.dart';
 import 'package:provider/provider.dart';
 
 import 'manage_product_item.dart';
@@ -17,7 +18,9 @@ class ManageProduct extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AddProduct.routeName);
+            },
           )
         ],
       ),
